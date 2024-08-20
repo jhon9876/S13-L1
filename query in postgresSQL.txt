@@ -1,0 +1,33 @@
+-- select * 
+-- from clienti
+-- where nome='Aldo'
+
+-- select nome, cognome
+-- from clienti
+-- where anno_di_nascita=2004
+
+-- select numero_fattura
+-- from fatture
+-- where iva=20
+
+-- select *
+-- from prodotti
+-- where extract(YEAR from data_attivazione)=2025
+
+-- select *
+-- from fatture join clienti
+-- on fatture.id_cliente=clienti.numero_cliente
+-- where importo <1000
+
+-- select numero_fattura,importo,iva,data_fattura,regione_residenza
+-- from fatture
+-- join fornitori on fatture.numero_fornitore=fornitori.numero_fornitore
+
+-- SELECT COUNT(*), EXTRACT(YEAR FROM data_fattura) AS anno 
+-- FROM fatture 
+-- WHERE iva=20 
+-- GROUP BY anno
+
+select count(*), sum(importo), extract(year from data_fattura)
+from fatture
+group by extract(year from data_fattura)
